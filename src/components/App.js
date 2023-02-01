@@ -1,20 +1,27 @@
 import React, {Component, useState} from "react";
-import '../styles/App.css';
+import "./../styles/App.css";
 
-class App extends Component {
-    constructor(props) {
-		super(props);
-	};
+function App() {
+  const [renderPara, setRenderPara] = useState(false);
 
-    render() {
-    	return(
-    		<div id="main">
-				{ /* Do not remove this main div!! */ }
-    		</div>
-    	);
+  const buttonClickHandler = () => {
+    setRenderPara(true);
+  }
+
+  const renderParaOrButton = () => {
+    if(renderPara) {
+      return <p id="para">Hello, I've learnt to use the full-stack evaluation tool. This makes me so happy</p>
+    } else {
+      return <button id="click" onClick={buttonClickHandler}>Click Me</button>
     }
+  }
+
+  return (
+    <div id="main">
+      {renderParaOrButton()}
+    </div>
+  );
 }
 
 
 export default App;
-
